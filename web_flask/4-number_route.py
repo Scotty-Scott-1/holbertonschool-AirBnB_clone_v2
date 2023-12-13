@@ -31,7 +31,7 @@ def hello4(text="is_cool"):
 
 @app.route("/number/<n>", strict_slashes=False)
 def hello5(n):
-    return "{} is a number".format(int(n))
+    return "{:d} is a number".format(n)
 
 
 if __name__ == "__main__":
