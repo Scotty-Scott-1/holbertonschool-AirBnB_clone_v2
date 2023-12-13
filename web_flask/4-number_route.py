@@ -29,9 +29,9 @@ def hello4(text="is_cool"):
     return "Python {}".format(new_text)
 
 
-@app.route("/number/<n>", strict_slashes=False)
+@app.route("/number/<int:n>", strict_slashes=False)
 def hello5(n):
-    return "{:d} is a number".format(n)
+    return "{} is a number".format(int(n))
 
 
 if __name__ == "__main__":
