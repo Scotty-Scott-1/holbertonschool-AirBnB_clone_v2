@@ -7,6 +7,7 @@ from models import storage
 
 app = Flask(__name__)
 
+
 @app.teardown_appcontext
 def teardown(error):
     """close and reload file and db storage"""
