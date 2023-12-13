@@ -7,18 +7,18 @@ from models import storage
 
 app = Flask(__name__)
 
-
-@app.route("/states_list", strict_slashes=False)
-def hello():
-    """get a list of states"""
-    states = list(sorted(storage.all(State).values(), key=lambda x: x.name))
-    return render_template("7-states_list.html", states=states)
-
-
 @app.teardown_appcontext
 def teardown(error):
     """close and reload file and db storage"""
     storage.close()
+
+
+@app.route("/states_list", strict_slashes=False)
+def hello():
+    """get a list of states"""
+    states = storage.all(State).values()
+    states_sort = sorted(states, key=lambda x: x.name)
+    return render_template("7-states_list.html", states=states_sort)
 
 
 if __name__ == "__main__":
