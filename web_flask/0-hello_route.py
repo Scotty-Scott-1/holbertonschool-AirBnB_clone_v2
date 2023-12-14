@@ -1,13 +1,12 @@
 #!/usr/bin/python3
 """ a module that starts an app in flask"""
 from flask import Flask
-
-
 app = Flask(__name__)
 
 
 @app.route("/", strict_slashes=False)
 def hello():
+    """return hello hbnb"""
     return "Hello HBNB!"
 
 
